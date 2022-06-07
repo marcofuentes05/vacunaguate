@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 30px;
+    background-color: #00A3E0;
+    justify-content: center;
+
+    p {
+        margin: auto;
+    }
+}
+
+.metamask-connect {
+    background-color: #F6851B;
+    border: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    align-self: center;
+    border-radius: 10px;
+    margin: 20px auto;
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+}

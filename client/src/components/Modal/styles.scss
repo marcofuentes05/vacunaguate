@@ -6,8 +6,8 @@
     bottom: 40px;
     border-radius: 10px;
     width: 60vw;
-    height: 30vh;
-    background-color: papayawhip;
+    height: 20vh;
+    background-color: #00A3E0;
     padding: 20px; 
 
     .close-icon {
@@ -35,9 +35,16 @@
         margin: 10px 0;
         padding: 0 10px;
         font-size: 18px;
-        background-color: green;
-        color: white;
+        background-color: gainsboro;
+        color: black;
         cursor: pointer;
+        justify-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        margin: auto;
     }
 }
 
@@ -52,4 +59,9 @@
 
 .ReactModal__Overlay--before-close{
     opacity: 0;
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    opacity: 1;
+    background-color: rgba(0.5, 0.5, 0.5, 0.7);;
 }

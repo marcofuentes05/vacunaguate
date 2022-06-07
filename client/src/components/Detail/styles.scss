@@ -19,12 +19,25 @@
         }
     }
 
+    h2 {
+        margin: 10px;
+    }
+
+    select {
+        margin: 10px;
+        border: 0;
+        border-radius: 10px;
+        height: 40px;
+        font-size: 15px;
+        padding: 10px;
+    }
+
 }
 
 .log-row {
     display: flex;
     flex-direction: column;
-    height: 80px;
+    // height: 100px;
     justify-content: flex-start;
     padding: 10px 10px;
     background-color: #00A3E0;
@@ -32,7 +45,7 @@
     margin: 10px ;
 
     &.orange {
-        background-color: #F6851B;
+        background-color: #E07400;
     }
 
     p {
@@ -48,10 +61,13 @@
     .log-info {
         display: flex;
         flex-direction: row;
-        
+
         .helper-text {
-            font-size: 10px;
-            color: gainsboro ;
+            font-size: 12px;
+            line-height: 14px;
+            padding-top: 1px;
+            color: gainsboro;
+            font-weight: 600;
             margin: 0 5px 0 0;
             max-width: 100px;
         }
@@ -61,7 +77,7 @@
             overflow: hidden;
             word-break: break-all;
             white-space: nowrap;
-            font-size: 12px;
+            font-size: 14px;
             margin: 0;
             max-width: 80%;
         }

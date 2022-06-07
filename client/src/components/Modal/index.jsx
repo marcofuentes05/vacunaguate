@@ -36,23 +36,25 @@ const SendTokenModal = props => {
             const _ = await contract.methods.transfer(userAddress, tokenId).send({from: loggedUser});
             setIsOpen(false);
         } catch {
-            console.log("Error");
+            alert('No tiene fondos suficientes');
         }
     }
 
-    return (<Modal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        style={customStyles}
-        contentLabel="Example Modal"
-        className="modal"
-      >
-        <h2>Enviar lote</h2>
-        <div className='close-icon' onClick={() => setIsOpen(false)}>X</div>
-        <div>Ingrese a qué wallet enviar {tokenId}</div>
-        <input value={userAddress} onChange={event => setUserAddress(event.target.value)} />
-        <div className='send-button' onClick={onSend} />
-      </Modal>)
+    return (
+        <Modal
+            isOpen={isOpen}
+            onRequestClose={() => setIsOpen(false)}
+            style={customStyles}
+            contentLabel="Example Modal"
+            className="modal"
+        >
+            <h2>Enviar lote</h2>
+            <div className='close-icon' onClick={() => setIsOpen(false)}>X</div>
+            <div>Ingrese a qué wallet enviar {tokenId}</div>
+            <input value={userAddress} onChange={event => setUserAddress(event.target.value)} />
+            <div className='send-button' onClick={onSend}>ENVIAR</div>
+        </Modal>
+      )
 }
 
 export default SendTokenModal;
