@@ -1,0 +1,39 @@
+.vaccine-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #00A3E0;
+
+    .vaccine-group-info {
+        display: flex;
+        flex-direction: column;
+
+        .helper-text {
+            font-size: 12px;
+            color: gainsboro ;
+            margin: 0;
+        }
+
+        .vaccine-group-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+    }
+
+    .vaccine-group-send {
+        display: flex;
+        flex-direction: column;
+        height: 40px;
+        width: 100px;
+        font-weight: 500;
+        background-color: gainsboro;
+        text-align: center;
+        justify-content: center;
+        border-radius: 4px;
+    }
+}

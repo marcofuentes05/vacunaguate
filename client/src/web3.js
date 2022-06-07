@@ -1,8 +1,8 @@
-import Web3 from 'web3';
+import Web3 from 'web3/dist/web3.min.js';
 
 export const web3 = new Web3(window.ethereum);
 
-export const CONTRACT_ADDRESS = '0x18Dd1E6ea71C28bCf882EcFa72d1CE51D6a32582';
+export const CONTRACT_ADDRESS = '0xDfCb727BB6C40Ee66A3Ef1Cd62545C1B6E3c9C1A';
 
 const contractABI = [
     {

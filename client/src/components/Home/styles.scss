@@ -5,6 +5,23 @@
     display: flex;
     flex-direction: column;
 
+    .metamask-connect {
+        background-color: #F6851B;
+        border: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        border-radius: 10px;
+        margin-top: 20px;
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
     .header {
         display: flex;
         flex-direction: row;
@@ -21,9 +38,10 @@
     .user-row {
         display: flex;
         flex-direction: row;
-        height: 60px;
+        height: 80px;
         justify-content: flex-start;
         padding: 10px 10px;
+        margin-top: 20px;
 
         .user-image {
             width: 60px;
@@ -41,11 +59,17 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
+            max-width: 60%;
 
             .wallet {
                 font-size: 16px;
-                font-weight: regular;
+                font-weight: 400;
                 color: darkgrey;
+                max-width: 80%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                max-width: 80%;
             }
 
             .username {
@@ -59,41 +83,85 @@
         }
     }
     
-    .actions {
-        display: flex;
-        flex-direction: column;
-        height: 100px;
-        justify-content: space-around;
+    .enter-group {
         background-color: #00A3E0;
         padding: 15px;
+        margin: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
 
-        .button {
-            cursor: pointer;
+        .helper-text {
+            font-size: 16px;
+            color: gainsboro ;
+            margin: 0 0 0 4px;
+        }
 
-            &:hover {
-                background-color: #00A3E0;
-                color: white;
+        .body {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;                
+
+            input {
+                height: 40px;
+                border-radius: 10px;
+                border: 0px solid black;
+                margin: 10px 0;
+                padding: 0 10px;
+                font-size: 18px;
+            }
+            
+            .number-send {
+                font-size: 20px;
+                font-weight: 500;
+                color: black;
+                background-color: gainsboro;
+                width: 100px !important;
+                display: flex;
+                justify-content: center;
+                height: 40px;
+                align-self: center;
+                align-items: center;
+                border-radius: 10px;
             }
         }
+    }
 
-        .enter-group {
-            display: flex;
-            flex-direction: row;
-            height: 40%;
-            background-color: green;
-            align-items: center;
-            justify-content: center;
-        }
+    .get-logs-button {
+        height: 40px;
+        background-color: #00A3E0;;
+        margin: 10px;
+        width: 40vw;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
 
-        .view-history {
-            display: flex;
-            flex-direction: row;
-            height: 40%;
-            justify-content: flex-start;
-            background-color: red;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        p {
+            font-size: 20px;
+            font-weight: 600;
+            color: gainsboro;
+            margin: 0;
         }
+    }
+
+    .view-history {
+        display: flex;
+        flex-direction: row;
+        height: 40%;
+        justify-content: flex-start;
+        background-color: red;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .groups-title  {
+        margin: 20px 10px 0;
     }
 }
