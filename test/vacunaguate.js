@@ -39,4 +39,17 @@ contract('VacunaGuate', (accounts) => {
     assert.equal(tokens[0].words[0], 5, 'Token 1 was not assigned to the first wallet');
     assert.equal(tokens[1].words[0], 56, 'Token 2 was not assigned to the first wallet');
   });
+
+  it('Should keep track of the number of NFTs emmited', async () => {
+    const contract = await VacunaGuate.deployed();
+    const count = await contract.getTokenCount();
+
+    assert.equal(count.words[0], 4, 'Token count is not accurate');
+  });
+
+  it('Should keep track of all generated NFTs', async () => {
+    const contract = await VacunaGuate.deployed();
+    const generatedTokens = await contract.getGeneratedTokens();
+    assert.equal(generatedTokens[generatedTokens.length - 1].words[0], 56, 'Contract did not generate last token');
+  })
 });
