@@ -12,36 +12,42 @@ contract VacunaGuate {
     event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
 
     uint256 tokenCounter = 1;
-    mapping(uint256 => address) internal idToOwner;
+    mapping(uint256 => address) idToOwner;
+    mapping(address => uint256[]) ownerToIds;
 
-    function mint(address _to) public {
-        uint256 _tokenId = tokenCounter;
-        idToOwner[_tokenId] = _to;
+    function mint(address _to, uint256 tokenId) public {
+        idToOwner[tokenId] = _to;
+        ownerToIds[_to].push(tokenId);
         tokenCounter++;
-        emit Mint(_to, _tokenId);
+        emit Mint(_to, tokenId);
     }
 
     function transfer(address _to, uint256 _tokenId) public {
         require(msg.sender == idToOwner[_tokenId]);
         idToOwner[_tokenId] = _to;
+        ownerToIds[_to].push(_tokenId);
+        for (uint i = 0; i < ownerToIds[msg.sender].length; i++) {
+            if (ownerToIds[msg.sender][i] == _tokenId) {
+                delete ownerToIds[msg.sender][i];
+                break;
+            }
+        }
         emit Transfer(msg.sender, _to, _tokenId);
     }
 
     function getTokensOfId(address from) public view returns (uint256[] memory) {
-        uint256[] memory _tokens = new uint256[](tokenCounter);
-        for (uint256 i = 0; i < tokenCounter; i++) {
-            if (idToOwner[i] == from) {
-                _tokens[i] = i;
-            }
+        uint256[] memory tokens = new uint256[](ownerToIds[from].length);
+        for (uint i = 0 ; i< ownerToIds[from].length ; i++) {
+            tokens[i] = ownerToIds[from][i];
         }
-        return _tokens;
+        return tokens;
     }
 
-    function getTokens() public view returns(address[] memory) {
-        address[] memory _tokens = new address[](tokenCounter);
-        for (uint256 i = 0; i < tokenCounter; i++) {
-            _tokens[i] = idToOwner[i];
-        }
-        return _tokens;
+    function getTokenCount() public view returns (uint256) {
+        return tokenCounter;
+    }
+
+    function getOwnerOfToken(uint256 token) public view returns(address) {
+        return idToOwner[token];
     }
 }
