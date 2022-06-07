@@ -11,13 +11,15 @@ contract VacunaGuate {
     event Mint(address indexed _to, uint256 indexed _tokenId);
     event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
 
-    uint256 tokenCounter = 1;
+    uint256 tokenCounter = 0;
     mapping(uint256 => address) idToOwner;
     mapping(address => uint256[]) ownerToIds;
+    uint256[] generatedTokens;
 
     function mint(address _to, uint256 tokenId) public {
         idToOwner[tokenId] = _to;
         ownerToIds[_to].push(tokenId);
+        generatedTokens.push(tokenId);
         tokenCounter++;
         emit Mint(_to, tokenId);
     }
@@ -49,5 +51,9 @@ contract VacunaGuate {
 
     function getOwnerOfToken(uint256 token) public view returns(address) {
         return idToOwner[token];
+    }
+
+    function getGeneratedTokens() public view returns (uint256[] memory) {
+        return generatedTokens;
     }
 }
